@@ -16,7 +16,7 @@ const VowelsButton = ({ onClick, isOnlyVowels }) => {
 
     return (
         <>
-        Le bouton a été utilis : {count} fois.
+        Le bouton a été utilisé : {count} fois.
         <button onClick={handleClick} className="vowelsButton">
             {isOnlyVowels ? 'Afficher toutes les lettres' : 'Afficher seulement les voyelles'}
         </button>

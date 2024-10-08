@@ -60,7 +60,7 @@ const Pokemon = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h2>Liste des Pokémon</h2>
+        <h2 className="PokemonTitle">Liste des Pokémon</h2>
 
         {isLoading ? (
           <p>Chargement...</p>

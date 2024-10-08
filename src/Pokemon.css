@@ -6,7 +6,7 @@
     font-style: normal;
   }
   
-  .App-header, .pokemon-list, .pokemon-item p {
+  .PokemonTitle, .pokemon-list, .pokemon-item p {
     font-family: 'PokemonFont', sans-serif;
   }
   

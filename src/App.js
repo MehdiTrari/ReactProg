@@ -23,15 +23,6 @@ function App() {
             console.log(e.target.value);
           }}
         />
-        {/* Ajout de l'iframe ici */}
-        <iframe 
-          width="110" 
-          height="200" 
-          src="https://www.myinstants.com/instant/allo-salem-27113/embed/" 
-          frameBorder="0" 
-          scrolling="no"
-          title="Allo Salem Sound"
-        />
       </header>
     </div>
   );
