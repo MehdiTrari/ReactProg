@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./Pokemon.css";
+import Pager from "./Pager";  // Import du composant Pager
 
 const Pokemon = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -15,7 +16,7 @@ const Pokemon = () => {
         setIsLoading(true);
 
         // Délai de 2 secondes
-        const delay = new Promise(resolve => setTimeout(resolve, 1000));
+        const delay = new Promise(resolve => setTimeout(resolve, 2000));
 
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
         if (res.ok) {
@@ -74,14 +75,11 @@ const Pokemon = () => {
           </ul>
         )}
 
-        <div className="pagination-buttons-fixed">
-          <button onClick={handlePrevious} disabled={offset === 0}>
-            Précédent
-          </button>
-          <button onClick={handleNext}>
-            Suivant
-          </button>
-        </div>
+        <Pager 
+          handlePrevious={handlePrevious} 
+          handleNext={handleNext} 
+          isPreviousDisabled={offset === 0} 
+        />
       </header>
     </div>
   );  
