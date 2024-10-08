@@ -54,7 +54,7 @@ const Signup = () => {
 
     if (Object.keys(errors).length === 0 && formData.password) {
       alert('Compte créé avec succès');
-      navigate('/');  // Redirection vers la page d'accueil
+      navigate('/');
     } else {
       alert('Une erreur est survenue');
     }
