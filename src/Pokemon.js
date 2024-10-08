@@ -6,13 +6,18 @@ import "./Pokemon.css";
 const Pokemon = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [offset, setOffset] = useState(0);
+  const limit = 20;
 
   useEffect(() => {
     const fetchPokemon = async () => {
       try {
         setIsLoading(true);
-        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=20');
 
+        // Délai de 2 secondes
+        const delay = new Promise(resolve => setTimeout(resolve, 1000));
+
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
         if (res.ok) {
           const data = await res.json();
           
@@ -27,6 +32,7 @@ const Pokemon = () => {
             })
           );
 
+          await delay; // Assure un minimum de 2 secondes de chargement
           setPokemonList(pokemonDetails);
         } else {
           console.error("Erreur lors de la récupération des Pokémon");
@@ -39,13 +45,21 @@ const Pokemon = () => {
     };
 
     fetchPokemon();
-  }, []);
+  }, [offset]);
+
+  const handleNext = () => {
+    setOffset(prevOffset => prevOffset + limit);
+  };
+
+  const handlePrevious = () => {
+    setOffset(prevOffset => Math.max(prevOffset - limit, 0));
+  };
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h2>Liste des 20 premiers Pokémon</h2>
+        <h2>Liste des Pokémon</h2>
 
         {isLoading ? (
           <p>Chargement...</p>
@@ -59,9 +73,18 @@ const Pokemon = () => {
             ))}
           </ul>
         )}
+
+        <div className="pagination-buttons-fixed">
+          <button onClick={handlePrevious} disabled={offset === 0}>
+            Précédent
+          </button>
+          <button onClick={handleNext}>
+            Suivant
+          </button>
+        </div>
       </header>
     </div>
-  );
+  );  
 };
 
 export default Pokemon;

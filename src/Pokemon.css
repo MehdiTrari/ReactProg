@@ -4,36 +4,59 @@
     src: url('../public/fonts/Pokemon Hollow.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
-
-.App-header, .pokemon-list, .pokemon-item p {
+  }
+  
+  .App-header, .pokemon-list, .pokemon-item p {
     font-family: 'PokemonFont', sans-serif;
-}
-
-/* Styles de la liste des Pokémon */
-.pokemon-list {
-    list-style-type: none; /* Enlever les puces */
+  }
+  
+  .pokemon-list {
+    list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Aligne les items à gauche */
-}
-
-.pokemon-item {
+    align-items: flex-start;
+    padding-bottom: 50px;
+  }
+  
+  .pokemon-item {
     display: flex;
-    align-items: center; /* Aligne les éléments verticalement au centre */
-    margin: 10px 0; /* Espacement entre les items */
-}
-
-.pokemon-item img {
-    margin-right: 10px; /* Espace entre l'image et le texte */
-    width: 100px; /* Augmente la taille de l'icône */
-    height: 100px;
-}
-
-.pokemon-item p {
-    font-size: 1.5rem; /* Augmente la taille du texte */
-    color: #fff; /* Couleur qui rappelle le style Pokémon */
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .pokemon-item img {
+    margin-right: 10px;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .pokemon-item p {
+    font-size: 1.5rem;
+    color: #fff;
     margin: 0;
-}
+  }
+  
+  .pagination-buttons-fixed {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  
+  .pagination-buttons-fixed button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    font-size: 1rem;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pagination-buttons-fixed button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
