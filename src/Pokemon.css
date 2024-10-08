@@ -1,39 +1,55 @@
 /* Pokemon.css */
 @font-face {
-    font-family: 'PokemonFont';
-    src: url('../public/fonts/Pokemon Hollow.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  .PokemonTitle, .pokemon-list, .pokemon-item p {
-    font-family: 'PokemonFont', sans-serif;
-  }
-  
-  .pokemon-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-bottom: 50px;
-  }
-  
-  .pokemon-item {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-  }
-  
-  .pokemon-item img {
-    margin-right: 10px;
-    width: 70px;
-    height: 70px;
-  }
-  
-  .pokemon-item p {
-    font-size: 1.5rem;
-    color: #fff;
-    margin: 0;
-  }
+  font-family: 'PokemonFont';
+  src: url('../public/fonts/Pokemon Hollow.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.App-header, .pokemon-list, .pokemon-item p {
+  font-family: 'PokemonFont', sans-serif;
+}
+
+/* Styles de la liste des Pokémon */
+.pokemon-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; /* Centre les éléments horizontalement */
+  align-items: center; /* Aligne les items verticalement au centre */
+  max-width: 90vw; /* Limite la largeur pour que ça reste visible à l'écran */
+  overflow: hidden; /* Empêche le dépassement */
+  padding-bottom: 60px;
+}
+
+.pokemon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le texte sous l'image */
+  margin: 10px; /* Espacement entre les items */
+  width: 100px; /* Largeur fixe pour les éléments, ajustez selon vos besoins */
+}
+
+.pokemon-item img {
+  margin-bottom: 5px; /* Espace entre l'image et le texte */
+  width: 70px; /* Taille de l'icône */
+  height: 70px;
+}
+
+.pokemon-item p {
+  font-size: 1.2rem; /* Taille du texte */
+  color: #fff; /* Couleur du texte */
+  margin: 0;
+  text-align: center; /* Centre le texte sous l'image */
+}
+
+.search-bar {
+  margin: 10px 0;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 200px;
+}
